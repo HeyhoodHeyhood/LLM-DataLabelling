@@ -1,0 +1,20 @@
+# auto-annotation tool — main config
+# Required: input_dir, output
+# Optional: model, api_keys, task_schema, prompt
+
+input_dir: examples
+output: outputs/annotations.json
+model: gpt-4o-mini
+
+# Multiple API keys — rotated round-robin per request.
+# Can also be set via OPENAI_API_KEY env var (comma-separated).
+# api_keys:
+#   - sk-key1
+#   - sk-key2
+
+# Output format definition file (defaults to the "default" preset if omitted)
+# task_schema: configs/task_schema.yaml
+
+# Direct prompt override — takes priority over task_schema when set
+# prompt: |
+#   Analyze this image and return STRICT JSON ONLY...

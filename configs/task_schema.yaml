@@ -1,0 +1,53 @@
+# ============================================================
+# task_schema.yaml — annotation output format definition
+#
+# Select a built-in preset via the `preset` field, or set
+# preset: custom to define your own labels and output fields.
+#
+# Built-in presets:
+#   default  — generic annotation: objects list + caption
+#   coco     — COCO-style: categories + normalized bbox + caption
+#   yolo     — YOLO-style: class_id + normalized bbox (xywh)
+# ============================================================
+
+preset: default   # options: default / coco / yolo / custom
+
+
+# ============================================================
+# The fields below only apply when preset: custom
+# ============================================================
+
+# labels: restrict detection to these categories; omit to allow all
+# labels:
+#   - cat
+#   - dog
+#   - person
+
+# output_fields: fields required for each detected object
+# available: label / description / confidence / bbox
+# output_fields:
+#   - label
+#   - description
+
+# include_caption: whether to include a whole-image caption (default: true)
+# include_caption: true
+
+
+# ============================================================
+# Equivalent custom config for the COCO preset:
+# ============================================================
+# preset: custom
+# output_fields:
+#   - label
+#   - bbox          # normalized [x_center, y_center, width, height]
+# include_caption: true
+
+
+# ============================================================
+# Equivalent custom config for the YOLO preset:
+# ============================================================
+# preset: custom
+# output_fields:
+#   - class_id      # 0-based index assigned from the labels list
+#   - bbox          # normalized [x_center, y_center, width, height]
+# include_caption: false
